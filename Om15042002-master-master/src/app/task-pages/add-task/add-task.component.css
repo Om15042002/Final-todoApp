@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  justify-content: center;
+}
+
+.typewriter h1 {
+  overflow:hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space:nowrap;
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 10s steps(60, end), blink-caret 0.75s step-end infinite;
+  color: #fefefe;
+  font-weight: 900;
+  font-size:50px;
+}
+.homepagetheme {
+  background-image: url("C:\angular practise\Final todoApp\Om15042002-master-master\src\assets\Images\website background.png");
+  height: 1000px;
+  width: 100%;
+  background-repeat: no-repeat;
+  /* /* background-attachment:inherit  */
+  background-size: 100%;
+  flex-wrap: wrap;
+}
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+.container div {
+  align-items: center;
+}
+label {
+  font-size: x-large;
+  font-weight: bolder;
+}
+#img2 {
+  height: 50%;
+  width: 60px;
+  /* margin-top: 50%; */
+}
+#img1 {
+  height: 80%;
+  width: 32%;
+  margin-top: 40px;
+}
+.circleborder {
+  margin: auto;
+  padding-top: auto;
+  padding-bottom: auto;
+  margin-top: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #aaaaaa;
+  transition-property: 'trasform';
+  transition: 0.5s ease ;
+}
+.circleborder:active{
+  transform: translate(10px,10px);
+  box-shadow: 5px 5px 5px #aaaaaa;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}

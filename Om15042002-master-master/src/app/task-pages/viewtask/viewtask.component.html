@@ -1,0 +1,122 @@
+<ng-template #content let-modal>
+  <div class="modal-header m-4">
+    <h2 class="modal-title">Task</h2>
+
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body m-3">
+    <div>
+      <form>
+        <div class="form-group" style="margin: auto">
+          <label for="exampleInputEmail1">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="form-group mt-2">
+          <label for="exampleInputPassword1">Description</label>
+          <textarea
+            name=""
+            class="form-control"
+            id=""
+            cols="30"
+            rows="6"
+            style="resize: vertical"
+          ></textarea>
+        </div>
+        <div class="form-group mt-2">
+          <label for="exampleInputPassword1">Deadline</label>
+          <!-- <ngb-datepicker (dateSelect)="onDateSelect($event)"></ngb-datepicker> -->
+          <br />
+          <input type="date" />
+        </div>
+        <div class="container">
+          <button
+            type="submit"
+            class="btn btn-success mt-4 btn-lg"
+            style="float: initial; padding: 10px; width: 20%; margin: auto;"
+          >
+            Edit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+<div class="container mt-5 filterDiv">
+  <img
+    id="filter"
+    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAXVBMVEX///8AAAAhISF/f3/5+flJSUlNTU37+/tGRkZLS0vb29vi4uIsLCypqalERETf39/v7++enp5VVVWXl5d4eHjKysptbW0WFhZcXFxxcXHW1tY+Pj6lpaXp6em+vr6xlauWAAADaklEQVR4nO2dgVYaMRBF07q4aFcLKGhL9f8/03bLegwEyGSTzMucd79g7nmZvADnqHOEEEIIIYQQQgghhBBCCCGEEBLBar0ZvqMzbNarVMGnb63wlCb4rD23gOcUwQftqUU8yAU77ZmFdMYjTAlxoz2ykI1UsBu0RxYySI/p6kV7ZCEv0lLsm8uwFxq6V+2RhbxKBd1We2QhW7Gh22nPLGInF3T9rfbUAm7FW/iP7k577miW8hfNf1pJcZGU4MhCe/YoHpP9/h7UFlK8Sz2iIz3+Libv4AR6iouZfvClMeOS+QR6Fxdzj+gIcIo5EhxBvW6WmfxgU5xXEz4dYvXPrgkfvBTn18QRaCnm28EJsNLIuYMTUA+4zDs4gZNi9h08AFMa2Yr+BJBdzPNUCwORYrkER/Svm/w14aOeYoma8FF+wBWqCR/NFEvVxBF6u7gse8l8olYaJWvCR+m6KVwTPhqKlXbwgEKKVRN0Cj/bVKkJn7op1k5wpGb1l36qhalYGuWfamcUa+2iwg5O1Emxbk34VCmNWk+1MBV2sd5TLUzxFFVqwqfsdaNTEz5FU9SqCZ+Cn/oVa8KnVIqaNXFEmRQRdnCiSGlg7OBEgZ9tYHZwIneKQDt4IHNpABT9CVl3UfupFiZjiogJjuS6bpBqwidTilg14ZPlAfcILOhylAZeTRwxdxd1P9HHMLM0MGvCZ9YDDj/BkfQU4XfwQHJpwBb9CYlfFcN9mrhESortJDgir37cp1qYfikUBH/JBLgRGt5oDyyGhjTEh4Y0xIeGNMSHhjTEh4Y0xIeGNMSHhjTEh4Y0xIeGNMSHhjTEh4Y0xIeGNMSHhjTEh4Y0xIeGNMSHhjTEh4Y0xIeGNMSHhjTEh4Y0xMe+ofQ/tbZn+Gbe0P0yb7gyb+h+mDd09+YNRYptGrqf5g0Fu9iqYfxBbdYwWrFdw9iD2rBh5HXTsmHcQW3aMCrFtg1jdrFxw4iD2rrhdcXmDa/uYvuG1xQNGF45qBYMLyuaMLxYGjYML+2iEcMLB9WK4fkUzRie3UU7hucOqiHDM4qWDMMH1ZRh8LqxZRg6qMYMA4pr7ZFyc7KLv7Unys5RinvteQrgK261xynB1xv1j/YwZXjbH/wGkwmOvO/2w3733tafuRbSd6b1CCGEEEIIIaQZPgBWdUCum9lCzwAAAABJRU5ErkJggg=="
+    alt=""
+    title="Apply Filters"
+  />
+</div>
+<div style="margin-bottom: 20px;">
+  <div class="container mt-3 " *ngFor="let item of tasks" >
+    <div class="box">
+      <div class="column">
+        <div class="title">
+          <label>Title:</label>
+          <p for="">{{ item.title }}</p>
+        </div>
+        <div class="title">
+          <label for="">Description:</label>
+          <p for="">{{ item.description }}</p>
+        </div>
+        <div class="title mt-4" >
+          <label for=""></label>
+          <label for=""
+            ><mat-slide-toggle style="margin-left: 10px" [formControl]="markasdone" (change)="edittask({ taskid:item.taskid,title:item.title,description:item.description,deadline:item.deadline,dateadded:item.dateadded,isImportant:item.isImportant,isCompleted:item.isCompleted,userid:item.userid})">Mark As Done:</mat-slide-toggle
+            >
+          </label>
+        </div>
+      </div>
+      <div class="column">
+        <div class="title">
+          <label >Date Added:</label>
+          <p>{{ item.dateadded }}</p>
+        </div>
+        <div class="title">
+          <label >Due Date:</label>
+          <p>{{ item.deadline }}</p>
+        </div>
+        <div class="mt-3">
+          <label for="" style="vertical-align: middle;">Importance:</label>
+          <label for=""><mat-chip-listbox aria-label="Fish selection"  [formControl]="importanttask" (change)="edittask({ taskid:item.taskid,title:item.title,description:item.description,deadline:item.deadline,dateadded:item.dateadded,isImportant:item.isImportant,isCompleted:item.isCompleted,userid:item.userid})" > 
+            <mat-chip-option selected="false">{{'Important'}}</mat-chip-option>
+          </mat-chip-listbox>
+          </label>
+        </div>
+      </div>
+      <div class="icons">
+        <img
+          id="edit"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQinEpxqe4nq6S2ok2YCcr3XEm4TflW-aJsYw&usqp=CAU"
+          alt=""
+          (click)="openVerticallyCentered(content)"
+        />
+        <img
+          id="delete"
+          src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+          alt=""
+          (click)="deleteTask(item.taskid,item.userid)"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- <div></div> -->
+</div>
+<div>
+  <p>
+    &NonBreakingSpace;;
+  </p>
+</div>

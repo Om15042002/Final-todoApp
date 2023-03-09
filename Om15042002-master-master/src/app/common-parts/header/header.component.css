@@ -1,0 +1,18 @@
+/* nav li{
+    display: inline-block;
+}
+ul{
+    float: right;
+    margin-top: 0px;
+}
+nav{
+    margin: 0%;
+    background-color: skyblue;
+} */
+
+nav img{
+    margin-left: 30px;
+}
+#navbarSupportedContent{
+    cursor: pointer;
+}
